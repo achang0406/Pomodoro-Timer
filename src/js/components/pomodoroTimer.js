@@ -15,10 +15,9 @@ export default class PomodoroTimer extends React.Component {
 		super();
 
 		this.state = {
-			timer: timer
+			timer: timer,
+			breakIndex: 0,
 		};
-
-		this.breakIndex = 0;
 
 		this.renderStartOrStop = this.renderStartOrStop.bind(this);
 		this.start = this.start.bind(this);
@@ -35,9 +34,11 @@ export default class PomodoroTimer extends React.Component {
 	}
 
 	start () {
-		this.breakIndex = 0;
 		this.timer();
-		this.setState({ timerStarted: true });
+		this.setState({
+			timerStarted: true,
+			breakIndex: 0,
+		});
 	}
 
 	stop () {
@@ -50,28 +51,31 @@ export default class PomodoroTimer extends React.Component {
 	}
 
 	reset () {
-		this.breakIndex = 0;
 		clearInterval(this.timerInterval);
 		this.setState({
 			timer: timer,
 			timerStarted: false,
+			breakIndex: 0,
 		});
 	}
 
 	break () {
+		let breakIndex = this.state.breakIndex;
 		this.stop();
 		clearTimeout(this.breakTimeout);
 		this.breakTimeout = setTimeout(() => {
-			this.breakIndex = 0;
+			this.setState({ breakIndex: 0 })
 		}, 2000);
 
-		if (this.state.timer === breakTimes[0]) this.breakIndex = 1;
+		if (this.state.timer === breakTimes[0]) breakIndex = 1;
 
-		this.setState({
-			timer: breakTimes[this.breakIndex],
-		});
+		const newState = {
+			timer: breakTimes[breakIndex],
+		};
 
-		if (this.breakIndex < breakTimes.length - 1) this.breakIndex++;
+		if (breakIndex < breakTimes.length - 1) newState.breakIndex = breakIndex + 1;
+
+		this.setState(newState);
 	}
 
     render () {
@@ -133,7 +137,7 @@ export default class PomodoroTimer extends React.Component {
 
     renderBreak () {
     	return (
-    		<div className="timerButton" onClick={this.break}>Break</div>
+    		<div className="timerButton" onClick={this.break}>Break<span className="breakDuration">({breakTimes[this.state.breakIndex] / 60000} mins)</span></div>
     	)
     }
 

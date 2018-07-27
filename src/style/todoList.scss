@@ -17,7 +17,7 @@
 }
 
 .taskForm {
-	width: 93%;
+	width: 100%;
 	height: 10%;
 
 }
@@ -72,4 +72,24 @@
 	width: 3rem;
 	text-align: right;
 	margin-left: -3.5rem;
+}
+
+.task:hover {
+	border-bottom: 1px dashed gray;
+
+	.hide {
+		display:initial;
+	}
+}
+
+.deleteTask {
+	cursor: pointer;
+
+	&.hide {
+		display: none;
+	}
+}
+
+.breakDuration {
+	margin-left: 0.5rem;
 }

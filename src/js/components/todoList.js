@@ -19,9 +19,10 @@ class TodoList extends React.Component {
 
 	handleSubmit (e) {
 		e.preventDefault();
-
-		this.props.todoActions.addItem(this.state.value);
-		this.setState({ value: "" });
+		if (this.state.value) {
+			this.props.todoActions.addItem(this.state.value);
+			this.setState({ value: "" });
+		}
 	}
 
 	handleInput (e) {
@@ -53,7 +54,7 @@ class TodoList extends React.Component {
 				    			<div key={i} className="task">
 					    			<span className="taskCount">{i+1}.</span>
 					    			<span className="taskName">{todo}</span>
-					    			<span className="deleteTask" onClick={this.removeTask.bind(this, i)}>X</span>
+					    			<span className="deleteTask hide" onClick={this.removeTask.bind(this, i)}>X</span>
 				    			</div>
 				    		)
 				    	})
