@@ -1,0 +1,75 @@
+.todos {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    right: 0;
+    box-sizing: border-box;
+    padding-right: 1%;
+}
+
+.taskContainer, .taskForm {
+	display: flex;
+}
+
+.taskForm {
+	width: 93%;
+	height: 10%;
+
+}
+
+.taskContainer {
+	width: 100%;
+	height: 90%;
+}
+
+.tasks, .taskInput {
+    padding: 0rem 0.3rem;
+    font-size: 1.3rem;
+}
+
+.taskInput {
+	width: 90%;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-family: inherit;
+    height: 2rem;
+}
+
+.tasks {
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+	height: 100%;
+	color: gray;
+}
+
+.task {
+    margin-top: 0.2rem;
+}
+
+.taskName {
+    display: inline-block;
+    width: 95%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.deleteTask {
+	vertical-align: top;
+	color: red;
+}
+
+.taskCount {
+	position: absolute;
+	width: 3rem;
+	text-align: right;
+	margin-left: -3.5rem;
+}

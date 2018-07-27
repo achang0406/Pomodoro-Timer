@@ -1,0 +1,48 @@
+.pomodoroTimer {
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.timer {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 90%;
+    font-size: 10rem;
+    cursor: default;
+}
+
+.timerButtons {
+	display: flex;
+
+	height: 10%;
+	font-size: 1.3rem;
+}
+
+.timerButton {
+    display: flex;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 20%;
+    padding: 0rem 1rem;
+    cursor: pointer;
+}
+
+@keyframes alert {
+	0% { color: black; }
+	50% { color: red; transform: scale(0.8); }
+	100% { color: black; }
+}
+
+.alert {
+	animation-name: alert;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
