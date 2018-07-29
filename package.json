@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "DFS Coding HW",
   "main": "index.js",
+  "bin": {
+    "mocha-webpack": "./bin/mocha-webpack"
+  },
   "scripts": {
+    "test": "webpack test/index.test.js -o ./dist/test.js && mocha ./dist/test.js",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
@@ -14,16 +18,21 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
     "css-loader": "^1.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.1",
+    "mocha": "^5.2.0",
+    "mocha-chrome": "^1.1.0",
+    "mocha-webpack": "^1.1.0",
     "node-sass": "^4.9.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "redux-mock-store": "^1.5.3",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
-    "webpack": "^4.16.2",
+    "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
